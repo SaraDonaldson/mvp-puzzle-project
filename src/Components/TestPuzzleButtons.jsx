@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function TestPuzzleButtons ({link, text}){
+export function TestPuzzleButton ({link, text}){
 
     return(
         <Link to={`/${link}`}>
