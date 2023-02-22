@@ -1,3 +1,5 @@
+import "./PuzzleTest.css";
+
 
 export function PuzzleTest1 () {
 
