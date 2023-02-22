@@ -12,7 +12,17 @@
  replace the sounds with meme sounds and add images to the buttons.
  next level: create this as an alternate "theme"
 
+ Loading-Screen facts (from an API)
 
+ Light-Darkmode Toggle (consistent throughout app)
+
+ Drag and Drop tiles onto gameboard
+
+ User customisable gameboard
+
+ User Stats Dashboard on Home Screen
+
+ Tutorial - interactive pop-ups for first time users
 
 # About Musical Puzzles
 
