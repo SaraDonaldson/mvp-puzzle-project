@@ -1,6 +1,6 @@
 
 
-.puzzle-test-1 {
+.surround {
     display: grid;
     margin: 0 auto;
 }
@@ -27,7 +27,7 @@
   
 }
 
-button {
+.back button {
     padding: 40px;
     background-color: blueviolet;
     color: aliceblue;
