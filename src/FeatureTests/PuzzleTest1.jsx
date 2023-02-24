@@ -1,8 +1,9 @@
 import "./PuzzleTest.css";
 import React, { useEffect, useState } from "react";
 import { TestPuzzleButton } from "../Components/TestPuzzleButtons";
-// import { MiniSudokuGrid } from "./MiniSudokuGrid";
 import { NewTestGrid } from "./NewTestGrid";
+
+
 
 
 
@@ -18,17 +19,17 @@ import { NewTestGrid } from "./NewTestGrid";
 //         row6: "  3   "
 //     }
 // ];
-let miniSudokuSolution= [
-    {
+let miniSudokuSolution= {
         id:2,
-        row1: "526134",
-        row2: "142456",
-        row3: "465312",
-        row4: "314625",
-        row5: "241563",
-        row6: "653241" 
+        solutionData: [
+        [5,2,6,1,3,4],
+        [1,4,2,4,5,6],
+        [4,6,5,3,1,2],
+        [3,1,4,6,2,5],
+        [2,4,1,5,6,3],
+        [6,5,3,2,4,1]
+     ]
     }
-];
 
 
 let miniSudokuData= {
@@ -98,57 +99,62 @@ click spot on grid to type answer (only accepts 1-9)
 export function PuzzleTest1 (props) {
 let initialData= miniSudokuData;
 let solutionData= miniSudokuSolution;   
+let cluesArray = handleClues();
 let [game, setGame] = useState(initialData);
 let [currentTile, setCurrentTile]= useState(null);
-let [userData, setUserData] = useState(initialData)
-let [canEdit, setCanEdit]=useState(false);
-let [objectX, setObjectX] =useState(false);
+let [userData, setUserData] = useState(game)
+let [objectX, setObjectX] =useState();
+let [objectY, setObjectY] =useState();
+let [clues, setClues] = useState(cluesArray)
 
 
 
-// function highlightAllSameNumber (selectedTile){
-//   find each key in game with value
-//   render "same-number" style
-// }
 
-// const handleSelectTile = (selected, row, col) => {
-//    console.log("ishandle select working....",selected, row, col);
-//     let r= "row"+row;
-//     let fullRow =[ r[0], r[1], r[2],r[3], r[4], r[5] ];
-//     let fullColumn = [`row1[${col}]`, `row2[${col}]`, `row3[${col}]`,`row4[${col}]`, `row5[${col}]`, `row6[${col}]`]
-//     let selectedTile = r +`[${col}]`;
-//     console.log (selectedTile);
-//     setCurrentTile(selectedTile);
-//     console.log (currentTile);
-//     setSelected(selected);
-    
-//     // highlightAxis (fullRow, fullColumn);
-//     // highlightAllSameNumber(selectedTile);
-// };
 
-// function handleSelectedTile
-
-function editTile (val){
-    //tile index - "currentTile"
-    //if tile initial value is more than 0, then end function
-    //else setGame  replace with inputvalue
-  console.log("edit tile started");
-
-  console.log(initialData);
-  console.log(initialData.initialData);
-  console.log(initialData.initialData[0]);
-  console.log(initialData.initialData[0][0]);
-  console.log("x axis", objectX);
+function handleSetBothAxis(xAxis, yAxis){
+   setObjectY(yAxis);
+   setObjectX(xAxis);
   
-    let x= 0;
-    let y= 1;
-   console.log(initialData.initialData[x][y]);
-   if (initialData[x[y]] >= 0){
+}
+
+function handleClues() {
+    let initialClues= [];
+    let xcount= 0;
+    let ycount= 0;
+    let dataKey= initialData.initialData;
+
+    for (let i of dataKey){
+        for (let j of i){
+        if(xcount <= dataKey.length){
+                let val= dataKey[xcount][ycount];
+        if ( val !== 0){
+        // console.log("val: ", val); 
+        // console.log(xcount,ycount);
+        initialClues.push([xcount,ycount]);
+        
+            }  ycount+=1;
+        }
+    } xcount += 1; 
+    ycount = 0;  
+}   
+    console.log(initialClues);
+    // setClues(initialClues);
+    return initialClues;
+}
+
+
+async function editTile (val){
+  console.log("edit tile started");
+  console.log("x axis", objectX);
+  console.log("y axis", objectY);
+  
+    if (initialData.initialData[objectX][objectY] <= 0){
     //in future this will be userData put at index in array in object
-    let newGameData= game[x].splice(y-1,1,val)
+    userData.initialData[objectX][objectY] = val;
+     await console.log("data",userData);
     //in future this set will set game data as the user data
-     setGame(newGameData);
-     setUserData(newGameData);
+    setGame(userData);
+    
    }
    };
 
@@ -163,9 +169,37 @@ function editTile (val){
         }
 
     function resetBoard (){
-        setGame(initialData);
-    }
+    //     setGame(initialData);
+    //     let initialClues= [];
+    //     let xcount= 0;
+    //     let ycount= 0;
+    //     let dataKey= initialData.initialData;
+    
+    //     for (let i of dataKey){
+    //         for (let j of i){
+    //         if(xcount <= dataKey.length){
+    //                 let val= dataKey[xcount][ycount];
+    //         if ( val !== 0){
+    //         // console.log("val: ", val); 
+    //         // console.log(xcount,ycount);
+    //         initialClues.push([xcount,ycount]);
+            
+    //             }  ycount+=1;
+    //         }
+    //     } xcount += 1; 
+    //     ycount = 0;  
+    // }   
+    //     console.log(initialClues);
+    //     // setClues(initialClues);
+    //     return initialClues;
+    // }
 
+    function deleteNumber (){
+        //x and y axis of selected
+        //if xy in initial data is not 0, 
+        //put to game state as "0"
+        //update user data with game state
+    }
 
 
     return (
@@ -187,19 +221,16 @@ function editTile (val){
         </div>
 
         <div>
-            {/* <MiniSudokuGrid 
-            digits={game}
-            handleSelectTile={handleSelectTile}
-            isSelected= {isSelected}
-            /> */}
+        
 
             <NewTestGrid 
+            handleSetBothAxis={handleSetBothAxis}
             dataObject={game}
-            setObjectX = {setObjectX}
-            objectX= {objectX}
+            // handleSetXAxiscb2 = {handleSetXAxis2}
+            // handleSetYAxiscb2 = {handleSetYAxis2}
+              clues={props.cluesArray}
                 />
-        
-            
+
             
        
 
@@ -218,6 +249,7 @@ function editTile (val){
         <div className="test-puzzle-buttons">
             <button onClick={e => resetBoard}>Reset Game</button>
             <button onClick={e => checkGame}>Check Answers</button>
+            <button onClick={e => deleteNumber}>del</button>
 
         </div>
       </div>

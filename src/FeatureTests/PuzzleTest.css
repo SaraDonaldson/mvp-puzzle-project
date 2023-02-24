@@ -44,10 +44,34 @@ h1{
     justify-content: center;
 }
 
-/* .test-puzzle-input button {
-    
+.test-puzzle-input{
+    background-color: gray;
+    display: grid;
+    width: 360px;
+    height: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .test-puzzle-input button {
+    background-color: aliceblue;
+    transition: 0.4s;
+    border: 1px solid lightgray;
+} 
+.test-puzzle-input button:hover {
+    background-color: rgb(198, 198, 255);
+} 
 
-} */
+.test-puzzle-buttons{
+    margin-top: 40px;
+}
+.test-puzzle-buttons button{
+    margin-top: 40px;
+    height: 50px;
+    padding: 5px;
+}

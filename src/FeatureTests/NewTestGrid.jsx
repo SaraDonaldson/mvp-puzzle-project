@@ -3,15 +3,14 @@ import "./miniSudokuGrid.css";
 import { TileButton } from "./TileComponent";
 
 
-export function NewTestGrid ({dataObject}) {
- 
+export function NewTestGrid ({dataObject,handleSetBothAxis, clues}) {
+    // handleSetXAxiscb2, handleSetYAxiscb2,
 const [changeVal, setChangeVal] = useState(false)
 const [selectedXAxis, setSelectedXAxis] = useState(false)
 const [selectedYAxis, setSelectedYAxis] = useState(false)
-let [objectX, setObjectX] =useState();
-// const [changeVal, setChangeVal] = useState(false)
 
-    
+
+
 
     return(
       
@@ -23,18 +22,20 @@ let [objectX, setObjectX] =useState();
 
              return arr.map((val, yAxis) => 
                 <TileButton
+                handleSetBothAxis={handleSetBothAxis}
                 selectedXAxis={selectedXAxis} 
                 selectedYAxis ={selectedYAxis}
                 setSelectedXAxis= {setSelectedXAxis}
                 setSelectedYAxis={setSelectedYAxis}
-                 initialValue= {val}
-                 xAxis= {xAxis}
-                 yAxis={yAxis}
-                //  handleSelectTile={isSelected}
-                 changeVal= {changeVal}
-                 setChangeVal = {setChangeVal}
-                 setObjectX = {setObjectX}
-                 objectX= {objectX}
+                tileValue= {val}
+                xAxis= {xAxis}
+                yAxis={yAxis}
+                // handleSetXAxiscb = {handleSetXAxiscb2}
+                // handleSetYAxiscb = {handleSetYAxiscb2}
+                changeVal= {changeVal}
+                setChangeVal = {setChangeVal}
+                clues= {(clues)}
+
                 />
                 
                 )
@@ -46,7 +47,7 @@ let [objectX, setObjectX] =useState();
              )}
              </div>
 
-
+             
      </div>
     );
 }
