@@ -2,21 +2,22 @@ import "./PuzzleTest.css";
 import React, { useEffect, useState } from "react";
 import { TestPuzzleButton } from "../Components/TestPuzzleButtons";
 import { MiniSudokuGrid } from "./MiniSudokuGrid";
+import { NewTestGrid } from "./NewTestGrid";
 
 
 
 
-let miniSudokuData= [
-    {
-        id:1,
-        row1: "5 61 4",
-        row2: "    5 ",
-        row3: " 6   2",
-        row4: " 14   ", 
-        row5: "2  5  ",
-        row6: "  3   "
-    }
-];
+// let miniSudokuData= [
+//     {
+//         id:1,
+//         row1: "5 61 4",
+//         row2: "    5 ",
+//         row3: " 6   2",
+//         row4: " 14   ", 
+//         row5: "2  5  ",
+//         row6: "  3   "
+//     }
+// ];
 let miniSudokuSolution= [
     {
         id:2,
@@ -28,6 +29,19 @@ let miniSudokuSolution= [
         row6: "653241" 
     }
 ];
+
+
+let miniSudokuData= {
+    id:1,
+    initialData: [
+    [5,0,6,1,0,4,],
+    [0,0,0,0,5,0,],
+    [0,6,0,0,0,2,],
+    [0,1,4,0,0,0,], 
+    [2,0,0,5,0,0,],
+    [0,0,3,0,0,0,],  
+]
+}
     
 
 /* About
@@ -82,38 +96,38 @@ click spot on grid to type answer (only accepts 1-9)
 ---------------------------------------------*/
 
 export function PuzzleTest1 (props) {
-let initialData= [...miniSudokuData];
+let initialData= miniSudokuData;
 let solutionData= miniSudokuSolution;   
 let [game, setGame] = useState(initialData);
 let [currentTile, setCurrentTile]= useState(null);
-let [userData, setUserData] = useState([...initialData])
+let [userData, setUserData] = useState(initialData)
 let [canEdit, setCanEdit]=useState(false);
+const [selectedXAxis, setSelectedXAxis] = useState(false)
+const [selectedYAxis, setSelectedYAxis] = useState(false)
 
 
- 
 
 
- 
-// function highlightAxis (row, col){
- //full row and column render a style to them
- //"highlight-axis"
-// }
 
 // function highlightAllSameNumber (selectedTile){
 //   find each key in game with value
 //   render "same-number" style
 // }
 
-const handleSelectTile = (selected, row, col) => {
-    let r= "row"+row;
-    let fullRow =[ r[0], r[1], r[2],r[3], r[4], r[5] ];
-    let fullColumn = [`row1[${col}]`, `row2[${col}]`, `row3[${col}]`,`row4[${col}]`, `row5[${col}]`, `row6[${col}]`]
-    let selectedTile = row[col];
+// const handleSelectTile = (selected, row, col) => {
+//    console.log("ishandle select working....",selected, row, col);
+//     let r= "row"+row;
+//     let fullRow =[ r[0], r[1], r[2],r[3], r[4], r[5] ];
+//     let fullColumn = [`row1[${col}]`, `row2[${col}]`, `row3[${col}]`,`row4[${col}]`, `row5[${col}]`, `row6[${col}]`]
+//     let selectedTile = r +`[${col}]`;
+//     console.log (selectedTile);
+//     setCurrentTile(selectedTile);
+//     console.log (currentTile);
+//     setSelected(selected);
     
-    setCurrentTile(selectedTile);
-    // highlightAxis (fullRow, fullColumn);
-    // highlightAllSameNumber(selectedTile);
-};
+//     // highlightAxis (fullRow, fullColumn);
+//     // highlightAllSameNumber(selectedTile);
+// };
 
 
 
@@ -121,14 +135,22 @@ function editTile (val){
     //tile index - "currentTile"
     //if tile initial value is more than 0, then end function
     //else setGame  replace with inputvalue
-    //update props SquareInput(game)
-   if (initialData.currentTile <= 0){
+  console.log("edit tile started");
 
-    let newGameData= [...game]
-     newGameData.currentTile= val;
+  console.log(initialData);
+  console.log(initialData.initialData);
+  console.log(initialData.initialData[0]);
+  console.log(initialData.initialData[0][0]);
+  
+    let x= 0;
+    let y= 1;
+   console.log(initialData.initialData[x][y]);
+   if (initialData[x[y]] >= 0){
+    //in future this will be userData put at index in array in object
+    let newGameData= game[x].splice(y-1,1,val)
+    //in future this set will set game data as the user data
      setGame(newGameData);
-     setUserData(game);
-     setCurrentTile(null);
+     setUserData(newGameData);
    }
    };
 
@@ -167,10 +189,19 @@ function editTile (val){
         </div>
 
         <div>
-            <MiniSudokuGrid 
-            digits= {game}
-            selectTileCB={(row,col) => handleSelectTile(row,col)}
-            
+            {/* <MiniSudokuGrid 
+            digits={game}
+            handleSelectTile={handleSelectTile}
+            isSelected= {isSelected}
+            /> */}
+
+            <NewTestGrid 
+            dataObject={game}
+            // handleSelectTile={handleSelectTile}
+            selectedXAxis={selectedXAxis} 
+            selectedYAxis ={selectedYAxis}
+            setSelectedXAxis= {setSelectedXAxis}
+            setSelectedYAxis={setSelectedYAxis}
             />
        
 
@@ -178,12 +209,12 @@ function editTile (val){
 
 
         <div className="test-puzzle-input">
-            <button type="button" id="1" onClick={(e)=>editTile('1')}>1</button>
-            <button type="button" id="2" onClick={(e)=>editTile('2')}>2</button>
-            <button type="button" id="3" onClick={(e)=>editTile('3')}>3</button>
-            <button type="button" id="4" onClick={(e)=>editTile('4')}>4</button>
-            <button type="button" id="5" onClick={(e)=>editTile('5')}>5</button>
-            <button type="button" id="6" onClick={(e)=>editTile('6')}>6</button>
+            <button type="button" id="1" onClick={(e)=>editTile(1)}>1</button>
+            <button type="button" id="2" onClick={(e)=>editTile(2)}>2</button>
+            <button type="button" id="3" onClick={(e)=>editTile(3)}>3</button>
+            <button type="button" id="4" onClick={(e)=>editTile(4)}>4</button>
+            <button type="button" id="5" onClick={(e)=>editTile(5)}>5</button>
+            <button type="button" id="6" onClick={(e)=>editTile(6)}>6</button>
         </div>
 
         <div className="test-puzzle-buttons">

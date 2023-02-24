@@ -5,28 +5,36 @@ import "./miniSudokuGrid.css";
 //<button className={ isAdmin ? 'active' : null } onClick={() => handleChangeView(true)}]
 
 export function MiniSudokuGrid (props) {
-    let [isSelected, setSelected] = useState(false);
+ 
 
 
-    function classNamesfn(...args) {
-        return args.filter(Boolean).join(' ')
-      };
+    
     
    /*
-
+   y, x++
+   y+ x++
+[0, [012345], 1[012345]]
+00 01 02 03 04 05
+10 11 12 13 14 15
+20 21 22 23 24 25
+30 31 32 33 34 35
+40 41 42 43 44 45
+50 51 52 53 54 55
+      
    */
     return(
       
         <div className="mini-sudoku-grid">
-         
-       
+
+{/* <com xAxis={OuterLoopIndex} yAxis={loopIndex}>{p.5} ></com> */}
+
          {props.digits.map(p => (
           <div className="mini-grid" key={p.id}>
           
-             <button id="0,0" className={classNamesfn('tile', isSelected && 'selected')}
-      onClick={() => handleSelectTile(true, 1,0)}>{p.row1[0]}</button>
-             <button id="0,1"  className="tile  vertical-divide">{p.row1[1]}</button>
-             <div className="tile">{p.row1[2]}</div>
+             <button id="0,0" className={`tile ${props.isSelected && 'selected'} ${(props.XAxisIsSelected || props.YAxisIsSelected )&& 'highlight-axis'}`}
+      onClick={() => {props.handleSelectTile(true, 1,0); console.log(props.isSelected)}}>{p.row1[0]}</button>
+             <button id="0,1"  className="tile  vertical-divide"><span>{p.row1[1]}</span></button>
+             <div onClick={() => console.log("here")} className="tile">{p.row1[2]}</div>
              <div className="tile vertical-divide">{p.row1[3]}</div>
              <div className="tile">{p.row1[4]}</div>
              <div className="tile">{p.row1[5]}</div>
