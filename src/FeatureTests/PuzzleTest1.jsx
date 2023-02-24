@@ -1,7 +1,7 @@
 import "./PuzzleTest.css";
 import React, { useEffect, useState } from "react";
 import { TestPuzzleButton } from "../Components/TestPuzzleButtons";
-import { MiniSudokuGrid } from "./MiniSudokuGrid";
+// import { MiniSudokuGrid } from "./MiniSudokuGrid";
 import { NewTestGrid } from "./NewTestGrid";
 
 
@@ -102,10 +102,7 @@ let [game, setGame] = useState(initialData);
 let [currentTile, setCurrentTile]= useState(null);
 let [userData, setUserData] = useState(initialData)
 let [canEdit, setCanEdit]=useState(false);
-const [selectedXAxis, setSelectedXAxis] = useState(false)
-const [selectedYAxis, setSelectedYAxis] = useState(false)
-
-
+let [objectX, setObjectX] =useState(false);
 
 
 
@@ -129,7 +126,7 @@ const [selectedYAxis, setSelectedYAxis] = useState(false)
 //     // highlightAllSameNumber(selectedTile);
 // };
 
-
+// function handleSelectedTile
 
 function editTile (val){
     //tile index - "currentTile"
@@ -141,6 +138,7 @@ function editTile (val){
   console.log(initialData.initialData);
   console.log(initialData.initialData[0]);
   console.log(initialData.initialData[0][0]);
+  console.log("x axis", objectX);
   
     let x= 0;
     let y= 1;
@@ -197,12 +195,12 @@ function editTile (val){
 
             <NewTestGrid 
             dataObject={game}
-            // handleSelectTile={handleSelectTile}
-            selectedXAxis={selectedXAxis} 
-            selectedYAxis ={selectedYAxis}
-            setSelectedXAxis= {setSelectedXAxis}
-            setSelectedYAxis={setSelectedYAxis}
-            />
+            setObjectX = {setObjectX}
+            objectX= {objectX}
+                />
+        
+            
+            
        
 
         </div>

@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-export function TileButton ({selectedXAxis, selectedYAxis, initialValue, xAxis, yAxis, handleSelectTile, setChangeVal, changeVal, setSelectedXAxis, setSelectedYAxis}){
+export function TileButton ({selectedXAxis, selectedYAxis, initialValue, xAxis, yAxis, handleSelectTile, setChangeVal, changeVal, setSelectedXAxis, setSelectedYAxis, objectX, setObjectX}){
 
 let [isSelected, setIsSelected]= useState(false);
 
@@ -7,7 +7,8 @@ async function handleClick(){
     await setChangeVal(!changeVal);
     setIsSelected(true); 
     setSelectedXAxis(xAxis);
-    setSelectedYAxis(yAxis)
+    setSelectedYAxis(yAxis);
+    setObjectX(xAxis);
     console.log(isSelected);
 }
 

@@ -8,6 +8,7 @@ export function NewTestGrid ({dataObject}) {
 const [changeVal, setChangeVal] = useState(false)
 const [selectedXAxis, setSelectedXAxis] = useState(false)
 const [selectedYAxis, setSelectedYAxis] = useState(false)
+let [objectX, setObjectX] =useState();
 // const [changeVal, setChangeVal] = useState(false)
 
     
@@ -32,6 +33,8 @@ const [selectedYAxis, setSelectedYAxis] = useState(false)
                 //  handleSelectTile={isSelected}
                  changeVal= {changeVal}
                  setChangeVal = {setChangeVal}
+                 setObjectX = {setObjectX}
+                 objectX= {objectX}
                 />
                 
                 )
