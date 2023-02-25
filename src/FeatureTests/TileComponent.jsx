@@ -24,7 +24,7 @@ let [isOriginalNumber,setIsOriginalNumber]= useState(false);
 
 useEffect(() => {
   let axisString = (xAxis.toString() + yAxis.toString())
- let answer =  cluesArray.includes(axisString)
+  let answer =  cluesArray.includes(axisString)
  setIsOriginalNumber(answer)
 }, [])
 
