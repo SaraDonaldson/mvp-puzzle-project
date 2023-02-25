@@ -3,7 +3,7 @@ import "./miniSudokuGrid.css";
 import { TileButton } from "./TileComponent";
 
 
-export function NewTestGrid ({dataObject,handleSetBothAxis, clues}) {
+export function NewTestGrid ({dataObject,handleSetBothAxis, cluesArray}) {
     // handleSetXAxiscb2, handleSetYAxiscb2,
 const [changeVal, setChangeVal] = useState(false)
 const [selectedXAxis, setSelectedXAxis] = useState(false)
@@ -18,10 +18,11 @@ const [selectedYAxis, setSelectedYAxis] = useState(false)
 
             <div className="mini-grid" key={dataObject.id}>          
       
-         {dataObject.initialData.map((arr, xAxis)  => {
+         {dataObject.initialData && dataObject.initialData.map((arr, xAxis)  => {
 
              return arr.map((val, yAxis) => 
                 <TileButton
+                key={Math.random() + xAxis}
                 handleSetBothAxis={handleSetBothAxis}
                 selectedXAxis={selectedXAxis} 
                 selectedYAxis ={selectedYAxis}
@@ -34,7 +35,7 @@ const [selectedYAxis, setSelectedYAxis] = useState(false)
                 // handleSetYAxiscb = {handleSetYAxiscb2}
                 changeVal= {changeVal}
                 setChangeVal = {setChangeVal}
-                clues= {(clues)}
+                cluesArray= {cluesArray}
 
                 />
                 

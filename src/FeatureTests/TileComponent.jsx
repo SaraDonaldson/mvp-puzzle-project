@@ -11,47 +11,61 @@ export function TileButton (
     xAxis, yAxis, 
     setChangeVal, 
     changeVal, 
-    clues
+    cluesArray
     })
     {
 
-let [isSelected, setIsSelected]= useState(false);
+// let [isSelected, setIsSelected]= useState(false);
+let [currentTileVal,setCurrentTileVal]= useState(tileValue);
+let [isOriginalNumber,setIsOriginalNumber]= useState(false);
 
 
+
+
+useEffect(() => {
+  let axisString = (xAxis.toString() + yAxis.toString())
+ let answer =  cluesArray.includes(axisString)
+ setIsOriginalNumber(answer)
+}, [])
+
+
+
+
+useEffect(() => {
+  setCurrentTileVal(tileValue)
+  
+}, [tileValue])
 
 async function handleClick(){
+  
+  console.log("click check original number: ", isOriginalNumber)
     await setChangeVal(!changeVal);
-     setIsSelected(true); 
+    //  setIsSelected(true); 
     handleSetBothAxis(xAxis, yAxis)
     setSelectedXAxis(xAxis);
     setSelectedYAxis(yAxis);
 
-    console.log(isSelected);
+    // console.log("is selected?", isSelected);
 }
 
-useEffect(() => {
-  setIsSelected(false)
-}, [changeVal])  
+// useEffect(() => {
+//   setIsSelected(false)
+// }, [changeVal])  
 
-// let isClue= clues.some(c=> c === [xAxis, yAxis])
-/* ${(tileValue !== 0) && 'clue'} 
-  // ${(clues.includes([xAxis,yAxis])) && 'clue'}
-    ${(clues.some(c=> c === [xAxis, yAxis])) && 'clue'}
-                        */
 
 return(
 
     <button  className={`
                         tile 
-                        ${isSelected && 'selected'} 
+                        ${(xAxis === selectedXAxis && yAxis === selectedYAxis ) && 'selected'} 
                         ${(xAxis === selectedXAxis || yAxis === selectedYAxis )&& 'highlight-axis'}
-                      
-                        ${(tileValue !== 0) && 'edited'} 
+                        ${isOriginalNumber && 'original-nums'}
+                        ${(currentTileVal !== 0 & ! isOriginalNumber) && 'edited'} 
                         ${(xAxis === 2) && 'horizontal-divide'} 
                         ${(yAxis === 1 || yAxis === 3) && 'vertical-divide'} 
 
                         `}
-    onClick={() => {handleClick()}}>{tileValue === 0 ? "": tileValue}</button>
+    onClick={() => {handleClick()}}>{currentTileVal === 0 ? "": currentTileVal}</button>
   
 )
 

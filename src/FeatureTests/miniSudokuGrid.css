@@ -36,10 +36,24 @@
     flex-wrap: wrap;
     overflow: hidden;
     padding: none !important;
-   
-
 }
 
+
+/* --------------------------------------------------------------------- */
+/* -------- Conditional tile classes ---------- */
+
+
+/* --------Tiles that are not 'clues'---------- */
+.edited {
+    background-color: rgb(249, 245, 245);
+    color: blue;
+}
+.edited button:hover {
+    color: grey;
+}
+
+
+/* --------box section lines---------- */
 .horizontal-divide{
     border-bottom: 2px solid black;
 }
@@ -48,9 +62,13 @@
     border-right: 2px solid black;
 
 }
-.clue {
- background-color: lightgray;
+
+/* --------Clues - cannot be edited---------- */
+.original-nums{
+ background-color: rgb(222, 222, 222);
 }
+
+/* --------styles for when tile is selected---------- */
 
 .highlight-axis{
     background-color:rgb(184, 184, 224);
@@ -59,14 +77,8 @@
     background-color: blue;
     color: white;
 }
-.can-edit {
-    background-color: rgb(249, 245, 245);
-    color: black;
-}
-.can-edit button:hover {
-    color: grey;
-}
 
+/* --------feature/button functions---------- */
 .incorrect-answer {
     color: red;
 }

@@ -43,7 +43,20 @@ let miniSudokuData= {
     [0,0,3,0,0,0,],  
 ]
 }
-    
+
+
+
+let userSudokuData= {
+    id:1,
+    initialData: [
+    [5,0,6,1,0,4,],
+    [0,0,0,0,5,0,],
+    [0,6,0,0,0,2,],
+    [0,1,4,0,0,0,], 
+    [2,0,0,5,0,0,],
+    [0,0,3,0,0,0,],  
+]
+}
 
 /* About
 -----------------------------------------------
@@ -98,14 +111,14 @@ click spot on grid to type answer (only accepts 1-9)
 
 export function PuzzleTest1 (props) {
 let initialData= miniSudokuData;
+let userData= userSudokuData;
 let solutionData= miniSudokuSolution;   
 let cluesArray = handleClues();
-let [game, setGame] = useState(initialData);
+let [game, setGame] = useState(userData);
 let [currentTile, setCurrentTile]= useState(null);
-let [userData, setUserData] = useState(game)
 let [objectX, setObjectX] =useState();
 let [objectY, setObjectY] =useState();
-let [clues, setClues] = useState(cluesArray)
+// let [clues, setClues] = useState(cluesArray)
 
 
 
@@ -114,7 +127,6 @@ let [clues, setClues] = useState(cluesArray)
 function handleSetBothAxis(xAxis, yAxis){
    setObjectY(yAxis);
    setObjectX(xAxis);
-  
 }
 
 function handleClues() {
@@ -128,33 +140,29 @@ function handleClues() {
         if(xcount <= dataKey.length){
                 let val= dataKey[xcount][ycount];
         if ( val !== 0){
-        // console.log("val: ", val); 
-        // console.log(xcount,ycount);
-        initialClues.push([xcount,ycount]);
-        
+        let xstring = xcount.toString();
+        let ystring = ycount.toString();           
+            initialClues.push(xstring+ystring);
             }  ycount+=1;
         }
     } xcount += 1; 
     ycount = 0;  
 }   
-    console.log(initialClues);
-    // setClues(initialClues);
-    return initialClues;
+    return initialClues
 }
 
 
 async function editTile (val){
   console.log("edit tile started");
-  console.log("x axis", objectX);
-  console.log("y axis", objectY);
-  
+  console.log("x axis: ", objectX);
+  console.log("y axis: ", objectY);
+ 
     if (initialData.initialData[objectX][objectY] <= 0){
     //in future this will be userData put at index in array in object
-    userData.initialData[objectX][objectY] = val;
-     await console.log("data",userData);
-    //in future this set will set game data as the user data
-    setGame(userData);
-    
+        userData.initialData[objectX][objectY] = val
+        // await setGame();
+    // game.initialData[objectX][objectY] = val  
+    //  await console.log("data", game);
    }
    };
 
@@ -169,30 +177,33 @@ async function editTile (val){
         }
 
     function resetBoard (){
-    //     setGame(initialData);
-    //     let initialClues= [];
-    //     let xcount= 0;
-    //     let ycount= 0;
-    //     let dataKey= initialData.initialData;
+        setGame(initialData);
+        let initialClues= [];
+        let xcount= 0;
+        let ycount= 0;
+        let dataKey= initialData.initialData;
     
-    //     for (let i of dataKey){
-    //         for (let j of i){
-    //         if(xcount <= dataKey.length){
-    //                 let val= dataKey[xcount][ycount];
-    //         if ( val !== 0){
-    //         // console.log("val: ", val); 
-    //         // console.log(xcount,ycount);
-    //         initialClues.push([xcount,ycount]);
+        for (let i of dataKey){
+            for (let j of i){
+            if(xcount <= dataKey.length){
+                    let val= dataKey[xcount][ycount];
+            if ( val !== 0){
+            // console.log("val: ", val); 
+            // console.log(xcount,ycount);
+            let xstring = xcount.toString();
+            let ystring = ycount.toString();
             
-    //             }  ycount+=1;
-    //         }
-    //     } xcount += 1; 
-    //     ycount = 0;  
-    // }   
-    //     console.log(initialClues);
-    //     // setClues(initialClues);
-    //     return initialClues;
-    // }
+            initialClues.push(xstring+ystring);
+            
+                }  ycount+=1;
+            }
+        } xcount += 1; 
+        ycount = 0;  
+    }   
+        console.log(initialClues);
+        // setClues(initialClues);
+        return initialClues;
+    }
 
     function deleteNumber (){
         //x and y axis of selected
@@ -228,7 +239,7 @@ async function editTile (val){
             dataObject={game}
             // handleSetXAxiscb2 = {handleSetXAxis2}
             // handleSetYAxiscb2 = {handleSetYAxis2}
-              clues={props.cluesArray}
+            cluesArray={cluesArray}
                 />
 
             
