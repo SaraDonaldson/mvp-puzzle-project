@@ -8,15 +8,15 @@ import Timer from "../Components/Timer";
 
 let miniSudokuSolution= {
         id:2,
-        solutionData: [
+        data: [
         [5,2,6,1,3,4],
         [1,4,2,4,5,6],
         [4,6,5,3,1,2],
         [3,1,4,6,2,5],
         [2,4,1,5,6,3],
-        [6,5,3,2,4,1]
+        [6,5,3,2,4,1],
      ]
-    }
+    };
 
 
 let miniSudokuData= {
@@ -29,7 +29,7 @@ let miniSudokuData= {
     [2,0,0,5,0,0,],
     [0,0,3,0,0,0,],  
 ]
-}
+};
 
 
 
@@ -43,7 +43,7 @@ let userSudokuData= {
     [2,0,0,5,0,0,],
     [0,0,3,0,0,0,],  
 ]
-}
+};
 
 /*---------------------------------------------*/
 
@@ -110,66 +110,61 @@ async function editTile (val){
 
 function checkGame (){
     let incorrectAnswers= [];
-    let xcount= 0;
-    let ycount= 0;
-    let solutionKey= solutionData.initialData;
+    let correct= 0;
+    let solutionKey= solutionData.data;
     let userKey= userData.initialData;
-
     console.log("checkgame function started");
-    for (let i of solutionKey){
-        console.log("iterating solution key");
-        for (let j of i){
-        console.log("iterating solution key");
-        if(xcount <= solutionKey.length){
-                // let sVal= solutionKey[xcount][ycount];
-                for (let k of userKey){
-                    for (let l of k){
-                            // let uVal= userdaKey[xcount][ycount];
-                             if ( j !== l){
-                            // console.log("val: ", val); 
-                            // console.log(xcount,ycount);
-                            let xstring = xcount.toString();
-                            let ystring = ycount.toString();
-                            incorrectAnswers.push(xstring+ystring);
-        
-            }  ycount+=1;
-        }}
-        
-    }} xcount += 1; 
-    ycount = 0;  
+    if (solutionKey === userKey){
+    console.log("Everything is correct!");
+    //start Game is won function
+ } 
+else{ 
+    for(let i= 0; i <= 5; i++){
+        for(let j=0; j<= 5; j++){
+        if (solutionKey[i][j] !== userKey[i][j]){
+            let xstring = i.toString();
+            let ystring = j.toString();
+            incorrectAnswers.push(xstring+ystring);
+        } else if (solutionKey[i][j] === userKey[i][j]){
+            correct+=1;
+        }   
+        }  
+    }    console.log("number of correct answers:", correct);
+        console.log("number of incorrect answers:", incorrectAnswers.length);
+        console.log("incorrect: ", incorrectAnswers);
+         return incorrectAnswers;
+}   
 
-}  
-    console.log(incorrectAnswers);
-    return incorrectAnswers;
- }
+}
+
 
     function resetBoard (){
-        setGame(initialData);
-        let initialClues= [];
-        let xcount= 0;
-        let ycount= 0;
-        let dataKey= initialData.initialData;
+        // setGame(initialData);
+        // let initialClues= [];
+        // let xcount= 0;
+        // let ycount= 0;
+        // let dataKey= initialData.initialData;
     
-        for (let i of dataKey){
-            for (let j of i){
-            if(xcount <= dataKey.length){
-                    let val= dataKey[xcount][ycount];
-            if ( val !== 0){
-            // console.log("val: ", val); 
-            // console.log(xcount,ycount);
-            let xstring = xcount.toString();
-            let ystring = ycount.toString();
+    //     for (let i of dataKey){
+    //         for (let j of i){
+    //         if(xcount <= dataKey.length){
+    //                 let val= dataKey[xcount][ycount];
+    //         if ( val !== 0){
+    //         // console.log("val: ", val); 
+    //         // console.log(xcount,ycount);
+    //         let xstring = xcount.toString();
+    //         let ystring = ycount.toString();
             
-            initialClues.push(xstring+ystring);
+    //         initialClues.push(xstring+ystring);
             
-                }  ycount+=1;
-            }
-        } xcount += 1; 
-        ycount = 0;  
-    }   
-        console.log(initialClues);
-        // setClues(initialClues);
-        return initialClues;
+    //             }  ycount+=1;
+    //         }
+    //     } xcount += 1; 
+    //     ycount = 0;  
+    // }   
+    //     console.log(initialClues);
+    //     // setClues(initialClues);
+    //     return initialClues;
     }
 
 
