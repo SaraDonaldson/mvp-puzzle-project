@@ -2,6 +2,7 @@ import "./PuzzleTest.css";
 import React, { useEffect, useState } from "react";
 import { TestPuzzleButton } from "../Components/TestPuzzleButtons";
 import { NewTestGrid } from "./NewTestGrid";
+import Timer from "../Components/Timer";
 
 
 
@@ -223,12 +224,12 @@ async function editTile (val){
             </div>
 
             <h1>Puzzle Test 1</h1>
-
             <div className="describe-puzzle">
                 <h3>Ordinary Number Mini-Sudoku</h3>
                 <p>Numbers 1-6</p>
             </div>
             </div>
+            <Timer/>
         </div>
 
         <div>

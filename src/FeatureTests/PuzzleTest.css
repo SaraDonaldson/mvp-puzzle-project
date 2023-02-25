@@ -10,7 +10,7 @@
     width: 100%;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 180px;
+    column-gap: 180px;
     margin-top: 20px;
     align-items: baseline;
     justify-items: center;
@@ -36,6 +36,7 @@
 
 .describe-puzzle{
     text-align: center;
+    align-self:flex-start;
 }
 
 h1{
@@ -68,10 +69,10 @@ h1{
 } 
 
 .test-puzzle-buttons{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .test-puzzle-buttons button{
-    margin-top: 40px;
+    margin-top: 20px;
     height: 50px;
     padding: 5px;
 }
