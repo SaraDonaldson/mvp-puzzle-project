@@ -52,12 +52,14 @@ let initialData= miniSudokuData;
 let userData= userSudokuData;
 let solutionData= miniSudokuSolution;   
 let cluesArray = handleClues();
-let incorrectTiles= false;
+
+
 
 let [game, setGame] = useState(userData);
 let [objectX, setObjectX] =useState();
 let [objectY, setObjectY] =useState();
-
+let [activateCheck, setActivateCheck] =useState(false);
+let [incorrectTiles, setIncorrectTiles] =useState([]);
 
 
 
@@ -65,6 +67,7 @@ let [objectY, setObjectY] =useState();
 function handleSetBothAxis(xAxis, yAxis){
    setObjectY(yAxis);
    setObjectX(xAxis);
+//    setActivateCheck(false);
 }
 
 function handleClues() {
@@ -99,6 +102,8 @@ async function editTile (val){
     if (initialData.initialData[objectX][objectY] <= 0){
         userData.initialData[objectX][objectY] = val;
    }
+    checkIfWon();
+    setActivateCheck(false);
    };
 
 
@@ -111,6 +116,7 @@ function checkGame (){
     console.log("checkgame function started");
     if (solutionKey === userKey){
     console.log("Everything is correct!");
+    //pause timer, save time
     //start Game is won function
  } 
 else{ 
@@ -127,15 +133,29 @@ else{
     }    console.log("number of correct answers:", correct);
         console.log("number of incorrect answers:", incorrectAnswers.length);
         console.log("incorrect: ", incorrectAnswers);
-        incorrectTiles= incorrectAnswers;
+        setIncorrectTiles(incorrectAnswers);
+        setActivateCheck(true);
          return incorrectAnswers;
 }   
 
 }
 
-    function youWin (){
-
+    function checkIfWon (){
+        let solutionKey= solutionData.data;
+        let userKey= userData.initialData;
+        console.log("check if won function started");
+        if (solutionKey === userKey){
+        console.log("Everything is correct!");
+        //pause timer, save time
+            youWin();
+     }  
     }
+
+    function youWin (){
+        //next game button loads. conditional css?
+        //pop up or component?
+    }
+
 
     function resetBoard (){
         let initial= initialData.initialData;
@@ -146,7 +166,9 @@ else{
             for(let j=0; j<= 5; j++){
             if (initial[i][j] !== user[i][j]){
                 user[i][j]=0;
-            } } }    
+            } } }  
+            //reset timer  
+            setActivateCheck(false);
     }
 
 
@@ -156,6 +178,7 @@ else{
         console.log("y axis: ", objectY);
           if (initialData.initialData[objectX][objectY] === 0){
               userData.initialData[objectX][objectY] = 0;}
+              setActivateCheck(false);
          }
     
 
@@ -191,6 +214,7 @@ else{
             // handleSetYAxiscb2 = {handleSetYAxis2}
             cluesArray={cluesArray}
             incorrectTiles={incorrectTiles}
+            activateCheck={activateCheck}
                 />
 
             

@@ -13,14 +13,15 @@ export function TileButton (
     changeVal, 
     cluesArray,
     incorrectTiles,
+    activateCheck
     })
     {
 
 // let [isSelected, setIsSelected]= useState(false);
 let [currentTileVal,setCurrentTileVal]= useState(tileValue);
 let [isOriginalNumber,setIsOriginalNumber]= useState(false);
-let [isIncorrect,setIsIncorrect]= useState(false);
-
+let [checkNumbers, setCheckNumbers]= useState(activateCheck)
+let [isIncorrect, setIsIncorrect] = useState(false)
 
 
 
@@ -33,33 +34,31 @@ useEffect(() => {
 
 useEffect(() => {
   setCurrentTileVal(tileValue)
-  
 }, [tileValue])
 
-// useEffect(() => {
-//   let axisString = (xAxis.toString() + yAxis.toString())
-//   let answer =  incorrectTiles.includes(axisString)
-//   setIsIncorrect(answer)
-// }, [])
+useEffect(() => {
+  if (activateCheck === false){
+    setIsIncorrect(false);
+  }else {
+  let axisString = (xAxis.toString() + yAxis.toString())
+  let answer =  incorrectTiles.includes(axisString)
+  setIsIncorrect(answer)
+  }
+  }, [activateCheck, incorrectTiles, xAxis, yAxis])
+
+
+
 
 async function handleClick(){
   
   console.log("click check original number: ", isOriginalNumber)
     await setChangeVal(!changeVal);
-    //  setIsSelected(true); 
     handleSetBothAxis(xAxis, yAxis)
     setSelectedXAxis(xAxis);
     setSelectedYAxis(yAxis);
-
-    // console.log("is selected?", isSelected);
 }
 
 
-// function IncorrectAnswer(){
-//   let axisString = (xAxis.toString() + yAxis.toString())
-//   let answer =  incorrectTiles.includes(axisString)
-//   setIsIncorrect(answer)
-// }
 
 
 
@@ -74,6 +73,8 @@ return(
                         ${(currentTileVal !== 0 & ! isOriginalNumber) && 'edited'} 
                         ${(xAxis === 2) && 'horizontal-divide'} 
                         ${(yAxis === 1 || yAxis === 3) && 'vertical-divide'} 
+                        ${(currentTileVal ===1) && 'tile-one'} 
+                        ${(currentTileVal ===2) && 'tile-two'} 
 
                         `}
     onClick={() => {handleClick()}}>{currentTileVal === 0 ? "": currentTileVal}</button>
