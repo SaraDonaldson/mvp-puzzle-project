@@ -66,6 +66,8 @@
 /* --------Clues - cannot be edited---------- */
 .original-nums{
  background-color: rgb(222, 222, 222);
+ border: 2px solid gray;
+ transition: 0.4s;
 }
 
 /* --------styles for when tile is selected---------- */
@@ -78,7 +80,24 @@
     color: white;
 }
 
+
+.selected-val {
+    background-color: black;
+}
+
+
+
 /* --------feature/button functions---------- */
 .incorrect-answer {
     color: red;
 }
+
+/* .tile-one {
+    background-color:rgb(227, 201, 251);
+
+}
+
+.tile-two{
+    background-color:rgb(201, 251, 235);
+
+} */

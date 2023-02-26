@@ -76,3 +76,9 @@ h1{
     height: 50px;
     padding: 5px;
 }
+
+/* ------------------------------------------------ */
+/* colors to match tiles on board */
+.test-puzzle-input #one button {
+   background-color: rgb(195, 137, 249);
+}

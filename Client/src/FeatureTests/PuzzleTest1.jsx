@@ -224,12 +224,12 @@ else{
 
 
         <div className="test-puzzle-input">
-            <button type="button" id="1" onClick={(e)=>editTile(1)}>1</button>
-            <button type="button" id="2" onClick={(e)=>editTile(2)}>2</button>
-            <button type="button" id="3" onClick={(e)=>editTile(3)}>3</button>
-            <button type="button" id="4" onClick={(e)=>editTile(4)}>4</button>
-            <button type="button" id="5" onClick={(e)=>editTile(5)}>5</button>
-            <button type="button" id="6" onClick={(e)=>editTile(6)}>6</button>
+            <button type="button" className="button-one" onClick={(e)=>editTile(1)}>1</button>
+            <button type="button" className="button-two" onClick={(e)=>editTile(2)}>2</button>
+            <button type="button" className="button-three" onClick={(e)=>editTile(3)}>3</button>
+            <button type="button" className="button-four" onClick={(e)=>editTile(4)}>4</button>
+            <button type="button" className="button-five" onClick={(e)=>editTile(5)}>5</button>
+            <button type="button" className="button-six" onClick={(e)=>editTile(6)}>6</button>
         </div>
 
         <div className="test-puzzle-buttons">
