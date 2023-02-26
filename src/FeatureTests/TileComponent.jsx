@@ -11,13 +11,15 @@ export function TileButton (
     xAxis, yAxis, 
     setChangeVal, 
     changeVal, 
-    cluesArray
+    cluesArray,
+    incorrectTiles,
     })
     {
 
 // let [isSelected, setIsSelected]= useState(false);
 let [currentTileVal,setCurrentTileVal]= useState(tileValue);
 let [isOriginalNumber,setIsOriginalNumber]= useState(false);
+let [isIncorrect,setIsIncorrect]= useState(false);
 
 
 
@@ -29,12 +31,16 @@ useEffect(() => {
 }, [])
 
 
-
-
 useEffect(() => {
   setCurrentTileVal(tileValue)
   
 }, [tileValue])
+
+// useEffect(() => {
+//   let axisString = (xAxis.toString() + yAxis.toString())
+//   let answer =  incorrectTiles.includes(axisString)
+//   setIsIncorrect(answer)
+// }, [])
 
 async function handleClick(){
   
@@ -48,9 +54,13 @@ async function handleClick(){
     // console.log("is selected?", isSelected);
 }
 
-// useEffect(() => {
-//   setIsSelected(false)
-// }, [changeVal])  
+
+// function IncorrectAnswer(){
+//   let axisString = (xAxis.toString() + yAxis.toString())
+//   let answer =  incorrectTiles.includes(axisString)
+//   setIsIncorrect(answer)
+// }
+
 
 
 return(
@@ -60,6 +70,7 @@ return(
                         ${(xAxis === selectedXAxis && yAxis === selectedYAxis ) && 'selected'} 
                         ${(xAxis === selectedXAxis || yAxis === selectedYAxis )&& 'highlight-axis'}
                         ${isOriginalNumber && 'original-nums'}
+                        ${isIncorrect && 'incorrect-answer'}
                         ${(currentTileVal !== 0 & ! isOriginalNumber) && 'edited'} 
                         ${(xAxis === 2) && 'horizontal-divide'} 
                         ${(yAxis === 1 || yAxis === 3) && 'vertical-divide'} 
