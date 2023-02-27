@@ -1,4 +1,5 @@
-import ("dotenv").config();
+import dotenv from "dotenv";
+let config = dotenv.config();
 import { createConnection } from "mysql";
 
 export default async function db(query) {
@@ -11,8 +12,12 @@ export default async function db(query) {
     const DB_USER = process.env.DB_USER;
     const DB_PASS = process.env.DB_PASS;
     const DB_NAME = process.env.DB_NAME;
+    console.log("DB_HOST", DB_HOST);
+    console.log("DB_USER", DB_USER);
+    console.log("DB_PASS", DB_PASS);
+    console.log("DB_NAME", DB_NAME);
 
-    const con = mysql.createConnection({
+    const con = createConnection({
       host: DB_HOST || "127.0.0.1",
       user: DB_USER || "root",
       password: DB_PASS,

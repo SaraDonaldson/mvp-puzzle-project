@@ -1,5 +1,5 @@
 import express from "express";
-import db from "../helper";
+import db from "../helper.js";
 const userRouter = express.Router();
 
 
@@ -8,32 +8,24 @@ const userRouter = express.Router();
 //   res.status(200).send({"mvp_app": ["hello app"]})
 // })
 
-// userRouter.get("/", (req, res) => {
-// res.send("Welcome to the user section of mvp app");
-// });
-
-
-// userRouter.get("/users", (req, res) => {
-//   db("SELECT * FROM users;")
-//     .then(results => {
-//       res.send(results.data);
-//     })
-//     .catch(err => res.status(500).send(err));
-// })
-
-
 userRouter.get("/", (req, res) => {
-  db("SHOW tables;")
+res.send("Welcome to the user section of mvp app");
+});
+
+//get all users
+userRouter.get("/users", (req, res) => {
+  db("SELECT * FROM users;")
     .then(results => {
       res.send(results.data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch(err => {res.status(500).send(err)
+    console.log(err)});
 })
 
 // GET user by id
 userRouter.get("/:userid", function(req, res, next) {
     let userId = req.params.userid;
-  db(`SELECT * FROM users where userid = ${userId};`)
+  db(`SELECT * FROM users where id = ${userId};`)
     .then(results => {
       res.send(results.data);
     })
@@ -42,8 +34,8 @@ userRouter.get("/:userid", function(req, res, next) {
 
 // GET user by username
 userRouter.get("/username", function(req, res, next) {
-  let username = req.params.userid;
-db(`SELECT * FROM users where username = ${username};`)
+  let username = req.body.username;
+db(`SELECT * FROM users where username = '${username}';`)
   .then(results => {
     res.send(results.data);
   })
@@ -56,8 +48,8 @@ userRouter.post("/", async function(req, res, next) {
   let { username } = req.body;
   // sql syntax - insert into db (cols) values ('${info}')
   let sql = `
-      INSERT INTO students (username)
-      VALUES ('${firstname}')
+      INSERT INTO users (username, avatar)
+      VALUES ('${username}', null)
             `;
   // async try - await - catch
   try {
@@ -66,9 +58,8 @@ userRouter.post("/", async function(req, res, next) {
     // start await to recieve data
     let result = await db("SELECT * FROM users;");
     res.status(201).send(result.data);
-  } catch {
-    err => res.status(500).send(err);
-  }
+  } catch{(err => {res.status(500).send(err)
+    console.log(err)})};
 });
 
 

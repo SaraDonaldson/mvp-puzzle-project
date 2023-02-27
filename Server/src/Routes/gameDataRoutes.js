@@ -17,4 +17,12 @@ gameDataRouter.get("/", (req, res) => {
   res.send("Welcome to the game section of mvp app");
 });
 
+gameDataRouter.get("/games", (req, res) => {
+  db("SELECT * FROM user_game_data;")
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+})
+
 export default gameDataRouter;
