@@ -1,21 +1,13 @@
 import express from "express";
-const router = express.Router();
-// const db = import("../helper");
-
-
-
-
+import db from "../helper.js";
 const appRouter = express.Router();
 
 
-appRouter.get("/app_data", (req, res) => {
+// appRouter.get("", (req, res) => {
 
-    res.status(200).send({"app": ["hello app"]})
-})
+//     res.status(200).send({"app": ["hello app"]})
+// })
 
-router.get("/", (req, res) => {
-  res.send("Welcome to the app");
-});
 
 
 // -------------------------------------------------------------
@@ -23,10 +15,10 @@ router.get("/", (req, res) => {
 //--------------------------------------------------------------
 
 
-router.get("/", (req, res) => {
+appRouter.get("/", (req, res) => {
   //gets all games in db
 
-  db("SELECT * FROM app;")
+  db("SELECT * FROM app_data;")
     .then(results => {
       res.send(results.data);
     })
@@ -40,10 +32,11 @@ router.get("/", (req, res) => {
 //--------------------------------------------------------------
 
 
-router.get("/app-data/:id", async (req, res) => {
+appRouter.get("/:game_type/", async (req, res) => {
     // Send back the full list of items
-    let puzzleType = req.params.puzzle-type;
-    let sql = `SELECT * FROM app WHERE puzzle-type = ${puzzleType} `;
+    let gameType= req.params.game_type;
+    let sql = `SELECT * FROM app_data WHERE game_type = 
+    '${gameType}' `;
   
     try {
       let result = await db(sql);
@@ -60,14 +53,13 @@ router.get("/app-data/:id", async (req, res) => {
 
 
 // -------------------------------------------------------------
-//         Get Game by game id and type
+//         Get Game by game id
 //--------------------------------------------------------------
 
-router.get("/app-data/:id", async (req, res) => {
+appRouter.get("/id/:id", async (req, res) => {
     // Send back the full list of items
-    let itemID = req.params.id;
-    let puzzleType = req.params.puzzle-type;
-    let sql = `SELECT * FROM app WHERE id = ${itemID} and puzzle-type = ${puzzleType} `;
+    let gameID = req.params.id;
+    let sql = `SELECT * FROM app_data WHERE id = '${gameID}'; `;
   
     try {
       let result = await db(sql);
@@ -84,14 +76,34 @@ router.get("/app-data/:id", async (req, res) => {
 
 
 
-
-
-
-
 //post function for back office 
+appRouter.post("/", async function(req, res) {
+  // The request's body is available in req.body
+  console.log("");
+  let { game_type, start_game_data, solution_data } = req.body;
+  let sql = `
+  INSERT INTO app_data ( game_type, start_game_data, solution_data )
+      VALUES ('${game_type}', '${start_game_data}', '${solution_data}')
+      `;
+  // If the query is successfull you should send back the full list of items
+  try {
+    await db(sql);
+    let result = await db("SELECT * FROM app_data;");
+    res.status(201).send(result.data);
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+
+
 
 //put function for back office
 
 // delete function for back office
 
 export default appRouter;
+
+//{"game_type": "mini-sudoku",
+//"start_game_data": "[[5,0,6,1,0,4,],[0,0,0,0,5,0,],[0,6,0,0,0,2,],[0,1,4,0,0,0,],[2,0,0,5,0,0,],[0,0,3,0,0,0,],]",
+//"solution_data":"[[5,0,6,1,0,4,],[0,0,0,0,5,0,],[0,6,0,0,0,2,],[0,1,4,0,0,0,], [2,0,0,5,0,0,],[0,0,3,0,0,0,],]"}

@@ -33,8 +33,9 @@ userRouter.get("/:userid", function(req, res, next) {
 });
 
 // GET user by username
-userRouter.get("/username", function(req, res, next) {
-  let username = req.body.username;
+userRouter.get("/:username", function(req, res, next) {
+  let username = req.body;
+
 db(`SELECT * FROM users where username = '${username}';`)
   .then(results => {
     res.send(results.data);
