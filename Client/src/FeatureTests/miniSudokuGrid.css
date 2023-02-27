@@ -36,8 +36,12 @@
     flex-wrap: wrap;
     overflow: hidden;
     padding: none !important;
+    border-radius: none;
 }
 
+button {
+    border-radius: none !important;
+}
 
 /* --------------------------------------------------------------------- */
 /* -------- Conditional tile classes ---------- */

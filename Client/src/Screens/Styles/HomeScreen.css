@@ -22,8 +22,7 @@ button{
    align-self: center;
    padding: 20px;
    margin: 5px;
-   max-width: 120px;
-   border-radius:5px; 
+   max-width: 120px; 
 }
 
 .puzzle-test1 button{
