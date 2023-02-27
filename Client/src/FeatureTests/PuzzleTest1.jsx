@@ -10,7 +10,7 @@ let miniSudokuSolution= {
         id:2,
         data: [
         [5,2,6,1,3,4],
-        [1,4,2,4,5,6],
+        [1,3,2,4,5,6],
         [4,6,5,3,1,2],
         [3,1,4,6,2,5],
         [2,4,1,5,6,3],
@@ -182,7 +182,13 @@ else{
          }
     
 
-
+//----------------more functions to include ------------//
+// clear incorrect tiles
+// reveal selected tile + count for revealed tiles
+// add pop up to reset game - are you sure?
+// you win pop up
+// save/set/pause timer component (props and use states)
+// pencil in numbers
 
 
 

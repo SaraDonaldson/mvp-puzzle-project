@@ -8,19 +8,40 @@
 
 ## Potential Feature Extensions
 
- memedoku 
- replace the sounds with meme sounds and add images to the buttons.
- next level: create this as an alternate "theme"
+honestly, be creeative and do whatever you like.
 
- Loading-Screen facts (from an API)
+Add a new type of puzzle 
+- you can base it on the puzzle there or a completely different one
+- you'll need to see the db structure to see if it fits, or use an API
+- 
+
+ memedoku 
+ replace the sounds with meme sounds and add images (css background image) to the buttons.
+ next level: create this as an alternate "theme"
+ bonus: multiple themes available - or a meme api with generate random
+
+ Loading-Screen with random facts (from an API)
 
  Light-Darkmode Toggle (consistent throughout app)
 
- Drag and Drop tiles onto gameboard
+ Back Office
+ - add new puzzles to the app table in the database
+ - create routes in appRoutes.js
+ - create admin login on login page
+ - route admin login to back office interface
+    - create a form in react to add new puzzles
+- Bonus - use game components to display preview of entered data
+- Bonus 2 - create a function to generate new puzzles - you probably love maths 
 
- User customisable gameboard
+Acessibility features 
+- a great chance to learn about various levels of accessibility
+- sizes and colors dependent on click on settings button
+- settings can be a menu in "App" - visible at all times (prefereably drop down but go ahead and do a burger or even route to a settings page if you need to)
+- create multiple accessibility settings for dyslexia, sight, hearing etc. (toggle)
+- create conditional css for each accessibility type. You can modify current css or you can create a new CSS file to use for each accessibility "style"
 
- User Stats Dashboard on Home Screen
+ User Stats Dashboard on Home Screen 
+ - using data from user dataase
 
  Tutorial - interactive pop-ups for first time users
 

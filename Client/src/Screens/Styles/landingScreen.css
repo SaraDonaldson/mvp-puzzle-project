@@ -1,0 +1,12 @@
+
+
+.landing-screen button{
+    padding: 20px;
+    margin: 0 auto;
+    font-weight:600;
+    color: white;
+    background-color: darkviolet;
+    display:flex;
+    align-items: center;
+    margin-top: 100px;
+}
