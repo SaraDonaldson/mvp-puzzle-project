@@ -4,6 +4,8 @@ import { FullSudokuGame } from "../Screens/FullSudokuGame"
 import { FutoShikiGame } from "../Screens/FutoshikiGame"
 import { HomeScreen } from "../Screens/Home"
 import {LandingScreen} from "../Screens/LandingScreen"
+import { MiniSudokuGame } from "../Screens/MiniSudokuScreen"
+
 
 
 export function AppRouter () {
@@ -16,7 +18,7 @@ export function AppRouter () {
                 <Route path="/puzzletest1" element={<PuzzleTest1/>}/>
                 <Route path="/futoshikigame" element={<FutoShikiGame/>}/>
                 <Route path="/fullsudokugame" element={<FullSudokuGame/>}/>
-
+                <Route path="/minisudokugame" element={<MiniSudokuGame/>}/>
                 </Routes>
 
         </Router>
