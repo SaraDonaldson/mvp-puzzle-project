@@ -5,6 +5,7 @@ import cors from "cors"
 import logger from "morgan"
 import cookieParser from "cookie-parser"
 import userRouter from "./Routes/userRoutes.js";
+import appRouter from "./Routes/appRoutes.js";
 const app = express();
 
 
@@ -19,7 +20,8 @@ app.use(cookieParser());
 
 //routes
 
-app.use('/users', userRouter)
+app.use('/app-data', appRouter)
+app.use('/game-data', userRouter)
 
 app.get("/test", (req, res) =>{
     res.json("server working")

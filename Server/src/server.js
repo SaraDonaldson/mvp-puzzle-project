@@ -1,5 +1,5 @@
 import app from "./app.js";
-import listEndpoints from "express-list-endpoints"
+import listEndpoints from "express-list-endpoints";
 
 
 const port = process.env.PORT || 5002;

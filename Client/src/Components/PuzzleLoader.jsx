@@ -84,20 +84,6 @@ async function LoadMenu(puzzle, user){
 };  
 
 
-//copy initial array
-
-  const handleSelect = (event) => {
-    // setInput(event.target.value)
-    let {value } = event.target;
-    setInput(value);
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    addTask(input);
-    setInput('');
-  }
-
   const addNewPuzzleToUser = async (puzzle) => {
     let copyOfInitialArray= copyinitialarray(puzzle);
     let gameID= copyGameID(puzzle)
@@ -126,33 +112,7 @@ async function LoadMenu(puzzle, user){
   }
 } catch (err) {
   console.log(`Server error: ${err.message}`);
-}
-  }
-
-
-
-
-  const deleteTask = (id) => {
-    // delete task from database
-    // upon success, update tasks
-    // upon failure, show error message
-  }
-
-
-  // function toggleDone(id) {
-  //   // Make a copy of state
-  //   let newAllItems = [...allItems];
-  //   // Find the item to modify
-  //   let item = newAllItems.find(i => i.id === id);
-  //   // Toggle the 'done' property
-  //   item.done = !item.done;
-  //   // Update state
-  //   setAllItems(allItems => newAllItems);
-  // }
-
-
-
-
+}}
 
 
   ///To go inside of Game
