@@ -6,9 +6,12 @@ import logger from "morgan"
 import cookieParser from "cookie-parser"
 import userRouter from "./Routes/userRoutes.js";
 import appRouter from "./Routes/appRoutes.js";
+import gameDataRouter from "./Routes/gameDataRoutes.js";
+// import path from "path";
 const app = express();
 
-
+// // Serve static files from the React frontend app
+// app.use(express.static(path.join(__dirname, "client/build")));
 
 // middlewares
 app.use(cors());
@@ -20,13 +23,25 @@ app.use(cookieParser());
 
 //routes
 
-app.use('/app-data', appRouter)
-app.use('/game-data', userRouter)
+app.use('/app_data', appRouter)
+app.use('/users', userRouter)
+app.use('/user_game_data', gameDataRouter)
+
 
 app.get("/test", (req, res) =>{
     res.json("server working")
 })
+app.get("/app_data", (req, res) =>{
+    res.json("app server working")
+})
 
+app.get("/users", (req, res) =>{
+    res.json("user server working")
+})
+
+app.get("/user_game_data", (req, res) =>{
+    res.json("game server working")
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

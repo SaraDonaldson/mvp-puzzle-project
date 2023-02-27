@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-const db = import("../helper");
+// const db = import("../helper");
 
 
 
@@ -8,7 +8,7 @@ const db = import("../helper");
 const appRouter = express.Router();
 
 
-appRouter.get("/", (req, res) => {
+appRouter.get("/app_data", (req, res) => {
 
     res.status(200).send({"app": ["hello app"]})
 })
