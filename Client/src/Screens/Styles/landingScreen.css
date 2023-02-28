@@ -7,7 +7,7 @@
 
     display:flex;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 80px;
     /* border-radius: 5px; */
    
 }
@@ -19,8 +19,24 @@ a:link { text-decoration: none; }
     background-color: darkviolet;
 }
 
-.login-guest-two button{
+.login-Sara button{
     color: white;
     background-color: rgb(211, 88, 0);
+    padding: 20px;
 
+}
+
+.new-user {
+    margin-top: 100px;
+    display:flex;
+    align-items: center;
+  
+}
+.new-user input {
+    margin: 0;
+}
+
+.new-user button {
+    margin: 0;
+    padding: 20px;
 }

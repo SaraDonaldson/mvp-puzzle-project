@@ -22,7 +22,7 @@ export function HomeScreen () {
             </div>
 
             <div className="mini-sudoku-button" >
-            <TestPuzzleButton link="minisudokugame" text="Mini Sudoku 6x6"/>
+            <TestPuzzleButton link="levelmenu" text="Mini Sudoku 6x6"/>
             </div>
             </div>
         </div>

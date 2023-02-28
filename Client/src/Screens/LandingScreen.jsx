@@ -1,6 +1,7 @@
 
 import "./Styles/landingScreen.css";
 import { TestPuzzleButton } from "../Components/TestPuzzleButtons";
+import { CreateUserAccount } from "../Components/CreateUserAccount.jsx";
 
 
 
@@ -16,9 +17,15 @@ export function LandingScreen () {
             <TestPuzzleButton link="home" text="Guest User One"/>
             </div>
 
-              
-            <div className="login-guest-two" >
-            <TestPuzzleButton link="home" text="Guest User Two"/>
+            <div className="login-Sara" >
+            <TestPuzzleButton link="home" text="Sara"/>
+            </div>
+
+
+            <div className="new-user" >
+            <CreateUserAccount
+        
+            />
             </div>
           
         </div>
