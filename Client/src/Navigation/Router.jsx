@@ -20,7 +20,7 @@ export function AppRouter () {
                 <Route path="/puzzletest1" element={<PuzzleTest1/>}/>
                 <Route path="/futoshikigame" element={<FutoShikiGame/>}/>
                 <Route path="/fullsudokugame" element={<FullSudokuGame/>}/>
-                <Route path="/minisudokugame" element={<MiniSudokuGame/>}/>
+                <Route path="/minisudokugame/:id" element={<MiniSudokuGame/>}/>
                 <Route path="/createaccount" element={<CreateUserAccount/>}/>
                 <Route path="/levelmenu" element={<LevelMenu/>}/>
                 </Routes>
