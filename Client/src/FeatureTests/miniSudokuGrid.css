@@ -1,0 +1,107 @@
+
+.mini-sudoku-grid {
+    width: 360px;
+    height: 360px;
+ background-color: grey;
+ margin: 0 auto;
+ margin-top: 70px;
+ display: flex;
+ flex-wrap: wrap;
+ border:2px solid black;
+}
+
+
+.mini-grid  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 360px;
+    height: 360px;
+    
+}
+
+
+
+.tile {
+    width: 59px;
+    height: 59.5px;
+    border: 0.8px solid rgb(240, 236, 236);
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 245, 245);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: none !important;
+    border-radius: none;
+}
+
+button {
+    border-radius: none !important;
+}
+
+/* --------------------------------------------------------------------- */
+/* -------- Conditional tile classes ---------- */
+
+
+/* --------Tiles that are not 'clues'---------- */
+.edited {
+    background-color: rgb(249, 245, 245);
+    color: blue;
+}
+.edited button:hover {
+    color: grey;
+}
+
+
+/* --------box section lines---------- */
+.horizontal-divide{
+    border-bottom: 2px solid black;
+}
+
+.vertical-divide {
+    border-right: 2px solid black;
+
+}
+
+/* --------Clues - cannot be edited---------- */
+.original-nums{
+ background-color: rgb(222, 222, 222);
+ border: 2px solid gray;
+ transition: 0.4s;
+}
+
+/* --------styles for when tile is selected---------- */
+
+.highlight-axis{
+    background-color:rgb(184, 184, 224);
+}
+.selected { 
+    background-color: blue;
+    color: white;
+}
+
+
+.selected-val {
+    background-color: black;
+}
+
+
+
+/* --------feature/button functions---------- */
+.incorrect-answer {
+    color: red;
+}
+
+/* .tile-one {
+    background-color:rgb(227, 201, 251);
+
+}
+
+.tile-two{
+    background-color:rgb(201, 251, 235);
+
+} */

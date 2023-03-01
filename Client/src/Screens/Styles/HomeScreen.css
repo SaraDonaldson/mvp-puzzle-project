@@ -1,0 +1,42 @@
+
+.home-screen{
+    flex-direction: column;
+    display: flex;
+    align-content:center;
+  
+}
+
+
+h1 {
+ 
+    text-align: center;
+}
+
+.puzzle-sections-buttons {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button{
+   align-self: center;
+   padding: 20px;
+   margin: 5px;
+   max-width: 120px; 
+}
+
+.puzzle-test1 button{
+    background-color: blueviolet;
+    color: white;
+}
+
+.futoshiki-button button{
+    background-color: hotpink;
+    color: white;
+}
+
+.full-sudoku-button button {
+    background-color: orange;
+    color: white;
+
+}

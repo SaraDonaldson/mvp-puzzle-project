@@ -1,0 +1,84 @@
+
+
+.surround {
+    display: grid;
+    margin: 0 auto;
+}
+
+.banner{
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 180px;
+    margin-top: 20px;
+    align-items: baseline;
+    justify-items: center;
+    
+
+}
+
+.back {
+    
+    text-align: left;
+    justify-self: flex-start;
+    display: grid;
+    justify-content: start;
+  
+}
+
+.back button {
+    padding: 40px;
+    background-color: blueviolet;
+    color: aliceblue;
+    margin: 0 auto;
+}
+
+.describe-puzzle{
+    text-align: center;
+    align-self:flex-start;
+}
+
+h1{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.test-puzzle-input{
+    background-color: gray;
+    display: grid;
+    width: 360px;
+    height: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.test-puzzle-input button {
+    background-color: aliceblue;
+    transition: 0.4s;
+    border: 1px solid lightgray;
+} 
+.test-puzzle-input button:hover {
+    background-color: rgb(198, 198, 255);
+} 
+
+.test-puzzle-buttons{
+    margin-top: 20px;
+}
+.test-puzzle-buttons button{
+    margin-top: 20px;
+    height: 50px;
+    padding: 5px;
+}
+
+/* ------------------------------------------------ */
+/* colors to match tiles on board */
+.test-puzzle-input #one button {
+   background-color: rgb(195, 137, 249);
+}
