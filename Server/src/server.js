@@ -14,8 +14,6 @@ const connection = mysql.createConnection({
 connection.query('SELECT * FROM `users`', function (error, results, fields) { console.log(results);});
 
 
-
-
 const port = process.env.PORT || "5002";
 app.listen(port,() => {
 console.table(listEndpoints(app))

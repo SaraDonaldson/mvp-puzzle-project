@@ -1,9 +1,9 @@
 import React, { useState }  from "react";
-import "./miniSudokuGrid.css";
-import { TileButton } from "../Components/TileComponent.jsx";
+import "../FeatureTests/miniSudokuGrid.css";
+import { TileButton } from "./TileComponent.jsx";
 
 
-export function NewTestGrid ({dataObject,handleSetBothAxis, cluesArray,incorrectTiles, activateCheck}) {
+export function PuzzleGridMap ({dataObject,handleSetBothAxis, cluesArray,incorrectTiles, activateCheck}) {
     // handleSetXAxiscb2, handleSetYAxiscb2,
 const [changeVal, setChangeVal] = useState(false)
 const [selectedXAxis, setSelectedXAxis] = useState(false)
@@ -18,7 +18,7 @@ const [selectedYAxis, setSelectedYAxis] = useState(false)
 
             <div className="mini-grid" key={dataObject.id}>          
       
-         {dataObject.initialData && dataObject.initialData.map((arr, xAxis)  => {
+         {dataObject && dataObject.map((arr, xAxis)  => {
 
              return arr.map((val, yAxis) => 
                 <TileButton
