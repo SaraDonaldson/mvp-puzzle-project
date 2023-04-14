@@ -24,7 +24,6 @@ export function LandingScreen () {
 
             <div className="new-user" >
             <CreateUserAccount
-        
             />
             </div>
           

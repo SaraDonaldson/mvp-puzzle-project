@@ -40,6 +40,14 @@ a:link { text-decoration: none; }
     margin-top: 100px;
     display:flex;
     align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    font-weight:600;
+
+    display:flex;
+    align-items: center;
+    margin-top: 80px;
+    
   
 }
 .new-user input {
@@ -49,4 +57,10 @@ a:link { text-decoration: none; }
 .new-user button {
     margin: 0;
     padding: 20px;
+    background-color:rgb(74, 4, 138);
+    box-shadow: inset 5px 5px 14px #aa4af3,
+                inset 5px 5px 14px #b794d1,
+                inset 0 0 14px #d8c3e9;
+    border-radius: 19px;
+    color: white;
 }
