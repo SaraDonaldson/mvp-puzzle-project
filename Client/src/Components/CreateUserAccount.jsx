@@ -63,12 +63,12 @@ async function getUserId(){
         <form onSubmit={e => handleSubmit(e)}>
         <input
         type="text"
-        placeholder= "enter username"
+        placeholder= "create a username"
         name="username"
         value = {input}
         onChange={e => handleChange(e)} 
         />
-        <button type="submit">create account</button>
+        <button type="submit">Sign Up</button>
 
         </form>                           
 
