@@ -8,10 +8,9 @@ mySQL Database - not included - see below
 Front End - Client folder (react)
 
 ### SQL DB
-- I entered it manually so I'll do the "sql dump"
-- Alternative - I've included the schema and a few puzzles here.
-- There's little in the app that currently needs it
-- I added the helper in the hopes of re-adding the db that way - but right now it's just the connection
+Do npm run migrate after installing packages.
+
+
 
 ### Back end
 - cd Server
