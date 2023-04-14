@@ -11,7 +11,7 @@ export function LandingScreen () {
     return (
         <div className="landing-screen">
 
-            <h1>Login/Landing</h1>
+            <h1>Login</h1>
            
             <div className="login-guest-one" >
             <TestPuzzleButton link="home" text="Guest User One"/>
@@ -24,7 +24,6 @@ export function LandingScreen () {
 
             <div className="new-user" >
             <CreateUserAccount
-        
             />
             </div>
           
