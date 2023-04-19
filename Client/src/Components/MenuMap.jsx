@@ -20,8 +20,8 @@ useEffect(() => {
                 key={p.id}
                 id={p.id}
                 gameType={p.game_type}
-                // puzzleTime={p.time}
-                // puzzleStatus={puzzleStatus}
+                puzzleTime={p.time}
+                puzzleStatus={puzzleStatus}
                 />
           ): <p>no items</p>
                 
