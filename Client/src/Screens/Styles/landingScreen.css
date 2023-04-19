@@ -34,12 +34,27 @@ a:link { text-decoration: none; }
 .login-Sara {
     background: transparent;
 }
-.login-Sara button{
+.login-Sara a button{
     color: white;
-    background-color: rgb(211, 88, 0);
+    background: #ff6d44;
     padding: 20px;
+    border-radius:5px;
+    border:none;
+    box-shadow:  0.5px 0.5px 0 0.5px #c63b14,
+                 0 0 0 1px rgb(255, 142, 142),
+                -0.5px -1px 0 0.5px white,
+                 3px 4px 10px 0.5px rgb(0, 0, 0);
+    /* transition:  0.4s ease-in-out; */
+    transition: all 5s;
 
 }
+.login-Sara a button:hover{
+    cursor: pointer;
+    /* background-color:#ff6d44; */
+    background:linear-gradient(90deg, rgba(198,59,20,1) 0%, rgba(255,109,68,1) 18%, rgba(255,247,245,1) 50%, rgba(255,109,68,1) 77%, rgba(198,59,20,1) 100%);
+    transition:  5s ease-in-out;
+}
+
 
 .new-user {
     margin-top: 100px;

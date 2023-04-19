@@ -13,12 +13,12 @@ export function LandingScreen () {
 
             <h1>Login</h1>
            
-            <div className="login-guest-one" >
+            {/* <div className="login-guest-one" >
             <TestPuzzleButton link="home" text="Guest User One"/>
-            </div>
+            </div> */}
 
             <div className="login-Sara" >
-            <TestPuzzleButton link="home" text="Sara"/>
+            <TestPuzzleButton link="home" text="Login"/>
             </div>
 
 
