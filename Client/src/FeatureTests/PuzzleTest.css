@@ -3,6 +3,8 @@
 .surround {
     display: grid;
     margin: 0 auto;
+    background-color: transparent;
+ 
 }
 
 .banner{
@@ -14,7 +16,7 @@
     margin-top: 20px;
     align-items: baseline;
     justify-items: center;
-    
+    background-color:transparent;
 
 }
 
@@ -56,6 +58,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 
 }
 
@@ -80,5 +83,5 @@ h1{
 /* ------------------------------------------------ */
 /* colors to match tiles on board */
 .test-puzzle-input #one button {
-   background-color: rgb(195, 137, 249);
+   background-color: rgba(149, 38, 252, 0.973);
 }
