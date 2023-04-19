@@ -18,6 +18,7 @@ h1 {
     display: grid;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 button{

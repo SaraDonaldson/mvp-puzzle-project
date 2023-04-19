@@ -24,11 +24,16 @@
 
 a:link { text-decoration: none; }
 
+.login-guest-one{
+    background: transparent;
+}
 .login-guest-one button{
     color: white;
     background-color: darkviolet;
 }
-
+.login-Sara {
+    background: transparent;
+}
 .login-Sara button{
     color: white;
     background-color: rgb(211, 88, 0);
@@ -47,11 +52,17 @@ a:link { text-decoration: none; }
     display:flex;
     align-items: center;
     margin-top: 80px;
+    background: transparent;
     
   
 }
 .new-user input {
     margin: 0;
+    background: rgba(49, 2, 94, 0.476);
+    color:#ffffff;
+}
+form {
+    background: transparent;
 }
 
 .new-user button {
@@ -63,4 +74,5 @@ a:link { text-decoration: none; }
                 inset 0 0 14px #d8c3e9;
     border-radius: 19px;
     color: white;
+    
 }
