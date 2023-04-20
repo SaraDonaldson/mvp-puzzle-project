@@ -7,5 +7,14 @@
     align-content: flex-start;
     align-items: baseline;
     height: 100%;
+}
 
+.nav-bar{
+  height: 50px;
+  width:100%;
+  position:fixed;
+}
+
+.content{
+ top: 50px;
 }

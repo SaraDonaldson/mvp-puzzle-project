@@ -1,4 +1,4 @@
-import Local from "./Local";
+import LocalStorage from "./LocalStorage";
 
 class userAPI {
 
@@ -26,7 +26,7 @@ class userAPI {
       headers: {},
     };
 
-    let token = Local.getToken();
+    let token = LocalStorage.getToken();
     if (token) {
       options.headers["Authorization"] = "Bearer " + token;
     }
