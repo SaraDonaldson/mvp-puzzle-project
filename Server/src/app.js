@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser"
 import userRouter from "./Routes/userRoutes.js";
 import appRouter from "./Routes/appRoutes.js";
 import gameDataRouter from "./Routes/gameDataRoutes.js";
+import authRouter from "./Routes/auth";
 // import path from "path";
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use('/app_data', appRouter)
 app.use('/users', userRouter)
 app.use('/user_game_data', gameDataRouter)
+app.use("/auth", authRouter);
 
 
 app.get("/test", (req, res) =>{
