@@ -9,7 +9,7 @@
     margin: 0 auto;
    
 }
-
+/* 
 .landing-screen button{
     padding: 20px;
     margin: 0 auto;
@@ -18,25 +18,53 @@
     display:flex;
     align-items: center;
     margin-top: 80px;
-    /* border-radius: 5px; */
+    border-radius: 5px;
    
+} */
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -------      Login Form          ---------------- */
+/* ---------------------------------------------------------------------------------------------- */
+
+.login-form {
+    background: transparent;
+    margin:0 auto;
+    margin-top: 10vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    row-gap: 2vh;
+    
+}
+input{
+    padding: 1vh;
+}
+
+.login-username{
+    color: white;
+    border: none;
+    display: flex;
+}
+.login-password {
+    color: white;
+    border: none;
+    display: flex;
 }
 
 a:link { text-decoration: none; }
 
-.login-guest-one{
+
+/* .login {
     background: transparent;
-}
-.login-guest-one button{
+} */
+button.login {
+    align-self: center;
+    margin: 5px;
+    max-width: 120px;
     color: white;
-    background-color: darkviolet;
-}
-.login-Sara {
-    background: transparent;
-}
-.login-Sara a button{
-    color: white;
-    background: #ff6d44;
+    background: #ff6d44 !important;
     padding: 20px;
     border-radius:5px;
     border:none;
@@ -44,17 +72,29 @@ a:link { text-decoration: none; }
                  0 0 0 1px rgb(255, 142, 142),
                 -0.5px -1px 0 0.5px white,
                  3px 4px 10px 0.5px rgb(0, 0, 0);
-    /* transition:  0.4s ease-in-out; */
-    transition: all 5s;
+    transition:  0.4s ease-in-out;
+    /* transition: all 5s; */
+    font-size: 1rem;
+    font-weight:600;
 
 }
-.login-Sara a button:hover{
+button.login:hover{
     cursor: pointer;
     /* background-color:#ff6d44; */
-    background:linear-gradient(90deg, rgba(198,59,20,1) 0%, rgba(255,109,68,1) 18%, rgba(255,247,245,1) 50%, rgba(255,109,68,1) 77%, rgba(198,59,20,1) 100%);
+    background:linear-gradient(90deg,
+                     rgba(198,59,20,1) 0%, 
+                     rgba(255,109,68,1) 18%, 
+                     rgba(255,247,245,1) 50%, 
+                     rgba(255,109,68,1) 77%, 
+                     rgba(198,59,20,1) 100%) !important;
     transition:  5s ease-in-out;
 }
 
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -------      Sign Up        ---------------- */
+/* ---------------------------------------------------------------------------------------------- */
 
 .new-user {
     margin-top: 100px;
