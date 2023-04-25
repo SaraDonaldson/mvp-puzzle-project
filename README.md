@@ -2,34 +2,33 @@
  ### MVP solo project for Codeop FS23 Bootcamp
 
 
-## Installation for the Feature Extension Wizard
-Back End - Server folder (express)
-mySQL Database - not included - see below
+# Installation 
+Back End - Server folder (express), 
 Front End - Client folder (react)
 
-### SQL DB
-Do npm run migrate after installing packages.
 
+### Back End Server
+Express JS
 
-
-### Back end
 - cd Server
+- npm install
 - "npm run dev"
 - local host is set to port 5002 - you might want to change this, it's in server.js
 
 ### Front end
-- cd Client - npm start
+React JS
+- cd Client 
+- npm install
+- npm start
+
+### mySQL DB
+- npm run migrate 
 
 
+# Structure
 
-## Structure
-Back end
-Front end
-Database
-
-### Back end - server folder
+## Back end - server folder
 - server.js - contains server start/setup and initial database connection
-- helper.js - does not contain migrate for SQL (sorry)
 - app.js - server object, middlewares, routes
 
 Routes 
@@ -39,15 +38,19 @@ Each route connects to a table in the database
 - gameDataRoutes - connects to the table where each played game is saved to (front end game and game menu)
 - userRoutes - connects to the username table  (front end - login page)
 
-### Front End - client folder
+### Authentication
+
+## Front End - client folder
 - Components
 - FeatureTests - 
 - Navigation - contains the router file
 - Screens - The pages onto which we load the components
-- App.js - I've got little here, but you could definitely use it to pass props as we change screens
+- App.js 
+- Local browser storage
+- API class with methods (request functions)
 
 
-## What's functioning?
+# What's functioning?
 
 The mini sudoku test. 
 - FeatureTests/PuzzleTest1
